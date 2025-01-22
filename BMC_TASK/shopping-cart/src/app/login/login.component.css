@@ -1,0 +1,151 @@
+
+.login-container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+/*--- header ---*/
+h2 {
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* Input Label Styling */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  color: #e1e1e1;
+}
+
+/* Input Fields Styling */
+input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+  transform: scale(1.05);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Disabled Button Styling */
+button:disabled {
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+/* Hover Effect for Button */
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(67, 233, 123, 0.5);
+}
+
+/*----- Error Text ----*/
+.error {
+  color: #ffb3b3;
+  font-size: 12px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/*----- Link to Sign Up----- */
+.signup-link {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.signup-link button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*----- Small Error Text Styling------ */
+small {
+  display: block;
+  color: #ffb3b3;
+  font-size: 12px;
+  text-align: left;
+}
+
+/* --------Password Container Styling ---------*/
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+/*-------- Eye Button Styling --------*/
+.eye-btn {
+  position: absolute;
+
+  top: 25%;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px; /* Reduced size */
+  padding: 0;
+  width: 20px;
+  display: flex;
+  right: -15px;
+
+}
+
+/*------- Hover Effect for Eye Button -------*/
+.eye-btn:hover {
+  color: #43e97b;
+}
+
+/* -----Responsive Design -------*/
+@media (max-width: 600px) {
+  .login-container {
+    width: 95%;
+    padding: 30px;
+  }
+}

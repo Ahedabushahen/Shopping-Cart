@@ -1,0 +1,102 @@
+<div class="sign-up-container">
+  <h2>Sign Up</h2>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+    <!-- Username Field -->
+    <div>
+      <label for="username">Username</label>
+      <input
+        name="username" 
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="Enter your username"
+      />
+      <div *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
+        <small *ngIf="signUpForm.get('username')?.errors?.['required']">Username is required</small>
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div>
+      <label for="email">Email</label>
+      <input
+        name="email" 
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+      <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
+        <small *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required</small>
+        <small *ngIf="signUpForm.get('email')?.errors?.['email']">Please enter a valid email</small>
+     
+      </div>
+
+       <!-- Email Exists Error Message -->
+     <div *ngIf="emailExists">
+    <small type="Error" style="font-size: medium;">Email already exists. If you already have an account, please <a (click)="navigateToLogin()">log in</a>.</small>
+       </div>
+    </div>
+
+    
+
+    <!-- Password & Confirm Password Fields -->
+    <div class="password-fields">
+      <label for="password">Password</label>
+      <input
+        name="password"
+        [type]="passwordVisible ? 'text' : 'password'"
+        id="password"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        name="confirmPassword" 
+        [type]="passwordVisible ? 'text' : 'password'"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+        placeholder="Confirm your password"
+      />
+
+      <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+        <small *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required</small>
+        <small *ngIf="signUpForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long</small>
+        <small *ngIf="signUpForm.get('password')?.errors?.['pattern']">Password must contain at least one capital letter</small>
+      </div>
+      
+      <div *ngIf="signUpForm.get('confirmPassword')?.invalid && signUpForm.get('confirmPassword')?.touched">
+        <small *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">Confirmation is required</small>
+        <small *ngIf="signUpForm.errors?.['passwordMismatch']">Passwords do not match</small>
+      </div>
+    </div>
+
+    <!-- Show Password Checkbox -->
+    <div class="show-password-container">
+      <label class="custom-checkbox">
+        <input type="checkbox" (change)="togglePasswordVisibility($event)" />
+        <span class="checkmark"></span>
+        Show Password
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button name="sign-upbtn"type="submit1" [disabled]="signUpForm.invalid">Register</button>
+
+<div *ngIf="signUpSuccess" class="full-screen-modal">
+  <div class="modal-content">
+    <h1>✔️ Success!</h1>
+    <p>Your registration was successful!</p>
+  </div>
+</div>
+
+
+  </form>
+
+  <div class="login-link">
+    <p>Already have an account?</p>
+    <button name="gotolog-inbtn" type="submit" (click)="navigateToLogin()">Login</button>
+  </div>
+</div>

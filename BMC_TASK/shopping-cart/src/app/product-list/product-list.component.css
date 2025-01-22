@@ -1,0 +1,229 @@
+/*------ General Styles------ */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+h4 {
+  font-size: 20px;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+input,
+select {
+  outline: none;
+}
+
+/*----- Header Styles ------*/
+.application-header {
+  background-color: #111827;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  height: 100px;
+}
+
+.logo-container h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #f59e0b;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.header-btn {
+  background-color: #10b981;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-btn:hover {
+  background-color: #059669;
+}
+
+/*---- Filter Section ---------*/
+.filter-container {
+  background-color: #d1cece;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 25%;
+  
+}
+
+.filter-container h4 {
+  font-size: 18px;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.filter {
+  margin-bottom: 15px;
+}
+
+.price-input {
+  width: 48%;
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.price-input:focus {
+  border-color: #10b981;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.filter-select:focus {
+  border-color: #10b981;
+}
+
+/*------ Product List ------*/
+.product-list-container {
+  width: 70%;
+}
+
+.product-list-container h4 {
+  font-size: 18px;
+  color: #374151;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-grid div {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.product-grid div:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.product-grid img {
+  width: 150px;
+  height: auto;
+  max-height: 200px; 
+  margin-right: 20px;
+  object-fit: contain; 
+  border-radius: 8px;
+}
+
+.product-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1f2937;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #10b981;
+  margin-bottom: 20px;
+}
+
+.product-grid button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-grid button:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+/* ---------Responsive Design----- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .filter-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .product-list-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-container h2 {
+    font-size: 18px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+  }
+
+  .header-btn {
+    padding: 8px 10px;
+  }
+}
+
+.load-trigger {
+  height: 50px;
+}

@@ -1,0 +1,37 @@
+<div class="application-header">
+  <div class="logo-container">
+    <h2>Your Shopping Cart</h2>
+  </div>
+  <div class="nav-buttons">
+    <button name="gotohomeproducts" class="header-btn" (click)="navigateToProductList()">Products</button>
+    <button name="gotohomepage" class="header-btn" (click)="navigateToMainPage()">Main Page</button>
+  </div>
+</div>
+
+<div class="cart-container" style="padding-top:25px;">
+  <!-- If the cart is empty -->
+  <div *ngIf="cart.length === 0" name="empty-cart">Your cart is empty.</div>
+
+  <!-- If the cart has items -->
+  <div class="cart-grid" *ngIf="cart.length > 0" name="cart-items">
+    <div *ngFor="let product of displayedCart" class="cart-item">
+      <img [src]="product.image" alt="{{ product.name }}">
+      <div class="cart-item-info">
+        <p class="cart-item-name">{{ product.name }}</p>
+        <p class="cart-item-price">{{ product.price | currency }}</p>
+
+        <div class="cart-item-quantity">
+          <button (click)="decreaseQuantity(product)">-</button>
+          <span>{{ product.quantity }}</span>
+          <button (click)="increaseQuantity(product)">+</button>
+        </div>
+
+        <p class="cart-item-total">Total: {{ getTotalPrice(product) | currency }}</p>
+        <button class="remove-btn" (click)="removeFromCart(product)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load trigger for lazy loading -->
+  <div #loadTrigger class="load-trigger"></div>
+</div>

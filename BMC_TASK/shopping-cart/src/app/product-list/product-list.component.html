@@ -1,0 +1,78 @@
+<div class="application-header">
+  <div class="logo-container">
+    <h2>Our Fashion</h2>
+  </div>
+  <div class="nav-buttons">
+    <button name="gotocart" class="header-btn" (click)="navigateToCart()">Cart</button>
+    <button name="gotohome" class="header-btn" (click)="navigateToMainPage()">Main Page</button>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Left side - Filters -->
+  <div class="filter-container">
+    <h4>Filter Products</h4>
+
+    <!-- Price Filter -->
+    <div class="filter" style="padding-bottom: 5px;">
+      <label for="maxPrice">Max Price: </label>
+      <input type="number" id="maxPrice" [(ngModel)]="maxPrice" (input)="applyFilters()" placeholder="Max" class="price-input" />
+
+      <label for="minPrice" style="padding-left: 5px;">Min Price: </label>
+      <input type="number" id="minPrice" [(ngModel)]="minPrice" (input)="applyFilters()" placeholder="Min" class="price-input" />
+    </div>
+
+    <!-- Price Error -->
+    <div *ngIf="priceError">
+      <small type="Error" style="font-size: medium; color: red;"> The Min Price is greater than Max price. </small>
+    </div>
+
+    <!-- Color Filter -->
+    <label for="color">Color:</label>
+    <select id="color" [(ngModel)]="selectedColor" (change)="applyFilters()" class="filter-select">
+      <option value="">Select Color</option>
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="navy">Navy Blue</option>
+      <option value="green">Green</option>
+      <option value="grey">Grey</option>
+      <option value="black">Black</option>
+    </select>
+
+    <!-- Size Filter -->
+    <label for="size">Size:</label>
+    <select id="size" [(ngModel)]="selectedSize" (change)="applyFilters()" class="filter-select">
+      <option value="">Select Size</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+
+    <!-- Category Filter -->
+    <label for="category">Category:</label>
+    <select id="category" [(ngModel)]="selectedCategory" (change)="applyFilters()" class="filter-select">
+      <option value="">Select Category</option>
+      <option value="Boxers Shorts">Boxers Shorts</option>
+      <option value="Men's Singlets">Men's Singlets</option>
+      <option value="Bathrobes & Pyjamas for Men">Bathrobes & Pyjamas</option>
+      <option value="Swimming Briefs">Swimming Briefs</option>
+    </select>
+  </div>
+
+  <!-- Right side - Products -->
+  <div class="product-list-container">
+    <h4>{{ filteredProducts.length }} PRODUCTS FOUND</h4>
+    <div class="product-grid">
+      <div name="product-item" class="product-item" *ngFor="let product of filteredProducts">
+        <img [src]="product.image" alt="{{ product.name }}">
+        <p class="product-name">{{ product.name }}</p>
+        <p class="product-price">{{ product.price | currency }}</p>
+        <button name="addcart-btn"(click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+ 
+    <!-- Load trigger for lazy loading -->
+    <div #loadTrigger class="load-trigger"></div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+
+
+<div class="welcome-window" *ngIf="showWelcomeWindow">
+  <div class="welcome-content">
+    <h2>Welcome, {{ currentUser.username }}!</h2>
+    <img src="../../assets/images/SumeerHere.jpeg" alt="Summer Image" class="welcome-image">
+    <button name="ShopNowbtn"class="close-window-btn" (click)="closeWelcomeWindow()">Shop Now</button>
+  </div>
+</div>
+
+
+<div class="application-header">
+  <img src="../../assets/images/Logo.png" alt="Man Fashion Logo" class="logo">
+  <div class="logo-container">
+    
+
+    <p class="welcome-message">Welcome, {{ currentUser.username }}!</p>
+  </div>
+ 
+  <div class="nav-buttons">
+    <button name="gotoproducts" class="header-btn" (click)="navigateToProductList()">Products</button>
+    <button name="gotocart" class="header-btn" (click)="navigateToCart()">Cart</button>
+    <button name="logout-btn" class="header-btn logout-btn" (click)="onLogout()">Logout</button>
+  </div>
+</div>
+
+<div class="main-container">
+<!-- Advertisement Alert -->
+<div class="advertisement-alert">
+  <p>🔥 Our Summer New Collection is here! Explore the hottest styles and enjoy exclusive offers! 🔥</p>
+  
+</div>
+
+  <h1 class="main-title">Welcome to the Men Fashion Experience!</h1>
+  <p style="font-size: 18px;  color: #333;  font-family: 'Arial', sans-serif;  line-height: 1.6;  text-align: center;  background: linear-gradient(90deg, #fc5126, #fa7c1c); /* Gradient background */  padding: 10px;  border-radius: 8px;  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;">Discover the latest trends and styles from our fantastic Men Fashion store. Shop now and enjoy your summer look!</p>
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <h2>Featured Products for Summer 2025</h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of featuredProducts">
+        <div class="product-image">
+          <img [src]="product.image" alt="Product Image">
+        </div>
+        <h3>{{ product.name }}</h3>
+        <p class="price">Price: ${{ product.price }}</p>
+        <button name="addcart-btn" (click)="addToCart(product)" class="cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Products Section -->
+  <section class="latest-products">
+    <h2>Latest Products </h2>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of latestProducts">
+        <div class="product-image">
+          <img [src]="product.image" alt="Product Image">
+        </div>
+        <h3>{{ product.name }}</h3>
+        <p class="price">Price: ${{ product.price }}</p>
+        <button name="addcartLatest-btn" (click)="addToCart(product)" class="cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="footer">
+  <p>&copy; 2025 Man Fashion. All rights reserved.</p>
+</div>

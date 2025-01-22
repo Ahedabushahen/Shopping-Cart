@@ -1,0 +1,51 @@
+<div class="login-container">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div>
+      <label for="email">Email</label>
+      <input
+        name="email"
+        type="email"
+        id="email"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <small *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</small>
+        <small *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <div class="password-container">
+        <input
+          name="password"
+          [type]="passwordVisible ? 'text' : 'password'"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <button type="button" class="eye-btn" (click)="togglePasswordVisibility()">
+          <i class="fa" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+        </button>
+      </div>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</small>
+      </div>
+    </div>
+
+    <div *ngIf="error">
+      <small class="error">{{ error }}</small>
+    </div>
+
+    <button name="log-inbtn" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+
+  <div class="signup-link">
+    <p>Don't have an account?</p>
+    <button name="gotosign-upbtn" (click)="navigateToSignUp()">Sign Up</button>
+  </div>
+</div>
